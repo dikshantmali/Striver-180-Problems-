@@ -1,0 +1,31 @@
+//  https://practice.geeksforgeeks.org/problems/8a644e94faaa94968d8665ba9e0a80d1ae3e0a2d/1
+
+vector<vector<int>> overlappedInterval(vector<vector<int>>& a) {
+         // Code here
+         
+        
+        vector<vector<int>> ans;
+        
+        sort(a.begin(),a.end());
+        int n = a.size();
+        
+        vector<int> tempinterval = a[0];
+        for(auto it:a)
+        {
+            if(it[0] <= tempinterval[1])
+            {
+                tempinterval[1] = max(it[1],tempinterval[1]);
+            }
+            else
+            {
+                ans.push_back(tempinterval);
+                tempinterval = it;
+            }
+        }
+        ans.push_back(tempinterval);
+        return ans;
+        
+        
+        
+    
+    }
