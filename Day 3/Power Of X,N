@@ -1,0 +1,42 @@
+https://practice.geeksforgeeks.org/problems/power-of-numbers-1587115620/
+
+
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+int main() {
+ 
+  #ifndef ONLINE_JUDGE
+  freopen("input.txt","r",stdin);
+  freopen("output.txt","w",stdout);
+  #endif
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  cout.tie(NULL);
+  int x,n;
+  cin>>x>>n;
+  int nn = n;
+  int ans = 1;
+  while(nn > 0)
+  {
+    if (!(nn&1))
+    {
+      x = x*x;
+      nn /= 2;
+    }
+    else
+    {
+      ans=ans*x;
+      nn -= 1;
+
+    }
+  }
+  cout<<ans<<endl;
+
+
+
+
+  return 0;
+  
+}
