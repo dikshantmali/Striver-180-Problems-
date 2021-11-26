@@ -1,0 +1,48 @@
+https://practice.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1#
+
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+int main() {
+ 
+  #ifndef ONLINE_JUDGE
+  freopen("input.txt","r",stdin);
+  freopen("output.txt","w",stdout);
+  #endif
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  cout.tie(NULL);
+  int n;
+  cin>>n;
+
+  int a[n] = {0};
+  for (int i = 0; i < n; ++i)
+  {
+    cin>>a[i];
+  }
+  map<int,int> mp;
+  int sum = 0;
+  int maxi = 0;
+  for (int i = 0; i < n; ++i)
+  {
+    sum += a[i];
+    if (sum == 0)
+    {
+      maxi = max(maxi,i+1);
+    }
+
+    if (mp.find(sum) != mp.end())
+    {
+      maxi = max(maxi , i - mp[sum]);
+    }
+    
+    mp.insert({sum,i});
+  }
+cout<<maxi<<endl;
+
+
+
+  return 0;
+  
+}
